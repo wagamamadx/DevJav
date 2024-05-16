@@ -1,15 +1,16 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
          System.out.println("Welcome to Party heroes");
 
-        // Set<String> superheroes = new HashSet<>(); orden de guardado aleatorio y no permite registros duplicados;
-        // Set<String> superheroes = new TreeSet<>(); orden alfabetico y no permite registros duplicados
-
-        List<String> superheroes = new ArrayList<>(); // orden segun se registra y no permite registros duplicados
+        // List<String> superheroes = new ArrayList<>(); // Permite duplicados, pero se encuentra ordenado por indices en el orden de agregaccion
+        // List<String> superheroes = new Vector<>(); // Permite duplicados, pero se encuentra ordenado por indices en el orden de agregaccion
+        List<String> superheroes = new LinkedList<>(); // Permite duplicados, pero se encuentra ordenado por indices en el orden de agregaccion
 
         superheroes.add("Spiderman");
         superheroes.add("Batman");
@@ -25,15 +26,19 @@ public class App {
             System.out.println("Spiderman la esta pasando bomba");            
         }
 
-        superheroes.remove("Hulk");
+        System.out.println("Superhero ebrio es "+superheroes.get(0));        
+        superheroes.set(6,"Tony Stark");
+        System.out.println("Ironman se saca el traje dejando su verdadera identidad : "+superheroes.get(6));
+        
+        superheroes.remove(3);
 
         if (!superheroes.contains("Hulk")) {
             System.out.println("Hulk salio a vomitar");
         }
-
-        superheroes.add("Superman");
-        superheroes.add("Superman");
-        superheroes.add("Superman");
+        
+        superheroes.add("Ironman");
+        superheroes.add("Ironman");
+        superheroes.add("Ironman");
 
         if (superheroes.isEmpty()) {
             System.out.println("La fiesta ha terminado");
